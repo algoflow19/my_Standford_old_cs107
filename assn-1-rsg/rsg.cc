@@ -11,6 +11,8 @@
 #include <fstream>
 #include "definition.h"
 #include "production.h"
+#include<stdlib.h>
+#include<cstring>
 using namespace std;
 
 const int maxLineLength=55;
@@ -109,25 +111,113 @@ static void generateAndPrintContent(map<string, Definition>& grammar){
  *             token is represented as a '\0'-terminated C string.
  */
 
+void swap(void* vp1,void* vp2,int size){
+    void* tmpv=malloc(size);
+    memcpy(tmpv,vp1,size);
+    memcpy(vp1,vp2,size);
+    memcpy(vp2,tmpv,size);
+}
+
+int lsearch(void* target,void* toSearch,int n,int elemSize){
+    for(int i=0;i<n;i++){
+        void* tmpV=(char*)toSearch+i*elemSize;
+        if(memcmp(target,tmpV,elemSize)==0)
+            return i;
+    }
+    return -1;
+}
+
+struct cVector
+{
+public:
+    cVector(int elementSize):count{0},capacity{4},elemSize{elementSize}
+    {
+        storePlace=malloc(capacity*elementSize);
+    }
+
+    void push_back(void* newElement){
+        if(count==capacity){
+            void* tmpStorePlace=malloc(elemSize*capacity*2);
+            memcpy(tmpStorePlace,storePlace,capacity*elemSize);
+            free(storePlace);
+            storePlace=tmpStorePlace;
+        }
+        memcpy((char*)storePlace+count*elemSize,newElement,elemSize);
+        count++;
+    }
+    void eraserAt(int index){
+        if(index+1>count||index<0){
+            cerr<<" call to eraser the "<<index<<endl;
+        }
+        if(count!=index+1)
+        memcpy((char*)storePlace+index*elemSize,(char*)storePlace+(index+1)*elemSize,elemSize*(count-index-1));
+        count--;
+        if(count<=capacity/4){
+            void* tmpStorePlace=malloc(elemSize*capacity/2);
+            memcpy(tmpStorePlace,storePlace,count*elemSize);
+            free(storePlace);
+            storePlace=tmpStorePlace;
+        }
+
+    }
+    int find(void * toMatch){
+        return lsearch(toMatch,storePlace,count,elemSize);
+    }
+    int size(){
+        return count;
+    }
+
+
+
+private:
+
+    void* storePlace;
+    int count;
+    int capacity;
+    int elemSize;
+};
+
 int main(int argc, char *argv[])
 {
-    if (argc == 1) {
-        cerr << "You need to specify the name of a grammar file." << endl;
-        cerr << "Usage: rsg <path to grammar text file>" << endl;
-        return 1; // non-zero return value means something bad happened
-    }
+    int a=3;
+    int b=5;
+    int zero=0;
+    /*
+    swap(&a,&b,sizeof(int));
+    cout<<a<<endl;
+    cout<<b<<endl;
 
-    ifstream grammarFile(argv[1]);
-    if (grammarFile.fail()) {
-        cerr << "Failed to open the file named \"" << argv[1] << "\".  Check to ensure the file exists. " << endl;
-        return 2; // each bad thing has its own bad return value
-    }
+    int toSearch[]={1,2,3,4,5};
+    cout<<lsearch(&b,toSearch,5,sizeof(int))<<endl;
+    cout<<lsearch(&a,toSearch,5,sizeof(int))<<endl;
+    cout<<lsearch(&zero,toSearch,5,sizeof(int))<<endl;
+    */
+    int toAssign;
+    cVector v(sizeof(int));
 
-    // things are looking good...
-    map<string, Definition> grammar;
-    readGrammar(grammarFile, grammar);
-    generateAndPrintContent(grammar);
+    v.push_back( &(toAssign=1));
+    v.push_back( &(toAssign=2));
+    v.push_back( &(toAssign=3));
+    v.push_back( &(toAssign=4));
+    v.push_back( &(toAssign=5));
+    v.push_back( &(toAssign=6));
 
+    cout<<v.size()<<endl;
+    cout<<v.find(&(toAssign=1))<<endl;
+    cout<<v.find(&(toAssign=2))<<endl;
+    cout<<v.find(&(toAssign=3))<<endl;
+    cout<<v.find(&(toAssign=4))<<endl;
+    cout<<v.find(&(toAssign=5))<<endl;
+    cout<<v.find(&(toAssign=6))<<endl;
+
+
+    cout<<"testEraser"<<endl;
+    v.eraserAt(0);
+    v.eraserAt(0);
+    v.eraserAt(0);
+    v.eraserAt(0);
+    v.eraserAt(0);
+    cout<<v.find(&(toAssign=6))<<endl;
 
     return 0;
 }

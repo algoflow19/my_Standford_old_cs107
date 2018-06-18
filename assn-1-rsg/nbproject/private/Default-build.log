@@ -1,6 +1,0 @@
-g++ -g -Wall -MM rsg.cc random.cc production.cc definition.cc > Makefile.dependencies
-g++  -g -Wall  -c -o rsg.o rsg.cc
-g++  -g -Wall  -c -o random.o random.cc
-g++  -g -Wall  -c -o production.o production.cc
-g++  -g -Wall  -c -o definition.o definition.cc
-g++ -o rsg rsg.o random.o production.o definition.o    
