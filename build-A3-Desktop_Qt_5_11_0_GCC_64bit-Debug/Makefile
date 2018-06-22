@@ -14,7 +14,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_QML_DEBUG
 CFLAGS        = -pipe -g -Wall -W -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -g -Wall -W -fPIC $(DEFINES)
 INCPATH       = -I../A3 -I. -I../../Qt5.11.0/5.11.0/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/kk/Qt5.11.0/5.11.0/gcc_64/bin/qmake
 DEL_FILE      = rm -f
@@ -50,8 +50,18 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../A3/main.cc 
-OBJECTS       = main.o
+SOURCES       = ../A3/hashset.c \
+		../A3/hashsettest.c \
+		../A3/streamtokenizer.c \
+		../A3/thesaurus-lookup.c \
+		../A3/vector.c \
+		../A3/vectortest.c 
+OBJECTS       = hashset.o \
+		hashsettest.o \
+		streamtokenizer.o \
+		thesaurus-lookup.o \
+		vector.o \
+		vectortest.o
 DIST          = ../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/common/unix.conf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/common/linux.conf \
@@ -200,6 +210,7 @@ DIST          = ../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/qt_config.prf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/spec_post.prf \
+		../A3/.qmake.stash \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/toolchain.prf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -213,7 +224,15 @@ DIST          = ../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/exceptions.prf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/yacc.prf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/lex.prf \
-		../A3/A3.pro  ../A3/main.cc
+		../A3/A3.pro bool.h \
+		hashset.h \
+		streamtokenizer.h \
+		vector.h ../A3/hashset.c \
+		../A3/hashsettest.c \
+		../A3/streamtokenizer.c \
+		../A3/thesaurus-lookup.c \
+		../A3/vector.c \
+		../A3/vectortest.c
 QMAKE_TARGET  = A3
 DESTDIR       = 
 TARGET        = A3
@@ -373,6 +392,7 @@ Makefile: ../A3/A3.pro ../../Qt5.11.0/5.11.0/gcc_64/mkspecs/linux-g++/qmake.conf
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/qt_config.prf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/toolchain.prf \
 		../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -536,6 +556,7 @@ Makefile: ../A3/A3.pro ../../Qt5.11.0/5.11.0/gcc_64/mkspecs/linux-g++/qmake.conf
 ../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/qt_config.prf:
 ../../Qt5.11.0/5.11.0/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/toolchain.prf:
 ../../Qt5.11.0/5.11.0/gcc_64/mkspecs/features/default_pre.prf:
@@ -593,8 +614,33 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../A3/main.cc 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../A3/main.cc
+hashset.o: ../A3/hashset.c ../A3/hashset.h \
+		../A3/vector.h \
+		../A3/bool.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o hashset.o ../A3/hashset.c
+
+hashsettest.o: ../A3/hashsettest.c ../A3/hashset.h \
+		../A3/vector.h \
+		../A3/bool.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o hashsettest.o ../A3/hashsettest.c
+
+streamtokenizer.o: ../A3/streamtokenizer.c ../A3/streamtokenizer.h \
+		../A3/bool.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o streamtokenizer.o ../A3/streamtokenizer.c
+
+thesaurus-lookup.o: ../A3/thesaurus-lookup.c ../A3/bool.h \
+		../A3/hashset.h \
+		../A3/vector.h \
+		../A3/streamtokenizer.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o thesaurus-lookup.o ../A3/thesaurus-lookup.c
+
+vector.o: ../A3/vector.c ../A3/vector.h \
+		../A3/bool.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o vector.o ../A3/vector.c
+
+vectortest.o: ../A3/vectortest.c ../A3/vector.h \
+		../A3/bool.h
+	$(CC) -c $(CFLAGS) $(INCPATH) -o vectortest.o ../A3/vectortest.c
 
 ####### Install
 
