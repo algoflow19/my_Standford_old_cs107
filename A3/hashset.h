@@ -76,10 +76,11 @@ typedef struct {
   int elemSize;
   int numBuckets;
   int count;
-  vector* buckets;
   HashSetHashFunction hashfn;
   HashSetCompareFunction comparefn;
   HashSetFreeFunction freefn;
+
+  vector** buckets;
 } hashset;
 
 /**

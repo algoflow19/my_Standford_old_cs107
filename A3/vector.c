@@ -5,7 +5,7 @@
 #include <assert.h>
 #include <search.h>
 
-const static int DEFUAT_INITALLOC_LENGTH=4;
+const static int DEFUAT_INITALLOC_LENGTH=8;
 
 void VectorNew(vector *v, int elemSize, VectorFreeFunction freeFn, int initialAllocation)
 {
@@ -22,7 +22,7 @@ void VectorNew(vector *v, int elemSize, VectorFreeFunction freeFn, int initialAl
     v->allocLength=initialAllocation;
     v->initAllocLength=initialAllocation;
     }
-  v->datas=malloc(elemSize*initialAllocation);
+  v->datas=malloc(elemSize*v->initAllocLength);
 }
 
 void VectorDispose(vector *v)
@@ -64,7 +64,7 @@ void VectorInsert(vector *v, const void *elemAddr, int position)
   assert(position>=0);
   assert(position<=v->logicSLength);
   if(v->allocLength==v->logicSLength){
-      v->datas=realloc(v->datas,(v->logicSLength+v->initAllocLength)*v->elemSize);
+      v->datas=realloc(v->datas,(v->allocLength+v->initAllocLength)*v->elemSize);
       assert(v->datas!=NULL);
       v->allocLength+=v->initAllocLength;
     }

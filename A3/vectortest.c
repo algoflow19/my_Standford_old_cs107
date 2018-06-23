@@ -405,6 +405,7 @@ static void MemoryTest()
  8 the final test is hard.
  */
 
+
 int main(int ignored, char **alsoIgnored) 
 {
   fprintf(stdout, " ------------------------- Starting the basic test...\n");
@@ -413,4 +414,5 @@ int main(int ignored, char **alsoIgnored)
   MemoryTest();
   return 0;
 }
+
 

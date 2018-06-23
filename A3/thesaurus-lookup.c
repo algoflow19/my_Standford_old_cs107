@@ -221,7 +221,7 @@ static void QueryThesaurus(hashset *thesaurus)
  */
 
 static const int kApproximateWordCount = (1 << 19) - 1; // six-digit Marsenne prime
-/*
+
 int main(int argc, const char *argv[])
 {
   hashset thesaurus;
@@ -233,4 +233,3 @@ int main(int argc, const char *argv[])
   HashSetDispose(&thesaurus);
   return 0;
 }
-*/
