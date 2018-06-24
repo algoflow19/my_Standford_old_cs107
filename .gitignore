@@ -3,3 +3,5 @@
 *solaris
 *data
 *test
+*.zip
+build*Qt*
