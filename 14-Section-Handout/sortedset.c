@@ -1,6 +1,6 @@
 
 #include"sortedset.h"
-
+#include<stdio.h>
 static const int kInitialCapacity = 4;
 
 void SetNew(sortedset *set, int elemSize, int (*cmpfn)(const void *, const void *))
@@ -33,14 +33,17 @@ bool SetAdd(sortedset *set, const void *elemPtr)
       return true;
     }
 
+
+  if(set->allocLength==set->toAddPlace){
+      set->allocLength+=kInitialCapacity;
+      set->storeStart=realloc(set->storeStart,(set->elemSize+8)*set->allocLength);
+      set->unitArrays=(char*)set->storeStart+4;
+      *(int*)set->storeStart=0;
+    }
   void* fatherNode=SetFind (set,elemPtr,0,true);
   int cmpResult=set->cmp(fatherNode,elemPtr);
   if(cmpResult==0) return false;
-  if(set->allocLength==set->toAddPlace){
-      set->allocLength+=kInitialCapacity;
-      set->storeStart=realloc(set->storeStart,(set->elemSize+8)*(set->allocLength));
-      set->unitArrays=(char*)set->storeStart+4;
-    }
+
 
   if(cmpResult>0){
       *(int*)((char*)fatherNode+set->elemSize)=set->toAddPlace;

@@ -11,26 +11,22 @@ int main()
 
   sortedset* set;
   set=malloc(sizeof(sortedset));  // mix the type with instance
-  SetNew (set,4,&cmpInt);
+  SetNew (set,sizeof(int),&cmpInt);
   int *elemptr=malloc(sizeof(int));
-  *elemptr=5;
-  SetAdd (set,elemptr);
-  *elemptr=3;
-  SetAdd (set,elemptr);
-  assert(*(int*)SetSearch (set,elemptr)==3);
-  *elemptr=5;
-  assert(*(int*)SetSearch (set,elemptr)==5);
-  *elemptr=-99;
+
   assert(SetSearch (set,elemptr)==NULL);
   for(int i=0;i<100;i++){
-      *elemptr=i;
+      *elemptr=rand()%5;
       SetAdd (set,elemptr);
     }
-  printf ("%d\n",set->toAddPlace);
-  for(int i=0;i<100;i++){
-      *elemptr=i;
-      assert(SetAdd (set,elemptr)==false);
+  int* unitArrays=(int*)set->unitArrays;
+
+
+  for(int i=0;i<10;i++){
+      printf ("The pos:%d data:%d lhs:%d rhs:%d \n",i,*((int*)unitArrays),*((int*)unitArrays+1),*((int*)unitArrays+2));
+      unitArrays+=3;
     }
-  assert(set->elemSize==4);
+  printf ("SetSize: %d\n",set->toAddPlace);
+
   return 0;
 }
