@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="X-Robots-Tag" content="unavailable_after: 30-Jun-2018 15:00:00 PST">
+   <title>CS107 Guide to x86-64</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   
+    <link href="https://web.stanford.edu/class/cs107/assets/stylesheet.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+
+    <script>
+      (function() {
+        var cx = '003265255082301896483:sq5n7qoyfh8';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+  </head>
+
+  <body>
+
+      <div class="navbar navbar-custom" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://web.stanford.edu/class/cs107/index.html">CS107 Spring 2018</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        
+  <ul class="nav navbar-nav">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Course materials <span class="glyphicon glyphicon-triangle-bottom"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="https://web.stanford.edu/class/cs107/admin.html">Admin</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/syllabus.html">Syllabus</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/labs.html">Labs</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/assignments.html">Assignments</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/exams.html">Exams</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/cgi-bin/gradebook">Gradebook</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting help <span class="glyphicon glyphicon-triangle-bottom"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="https://web.stanford.edu/class/cs107/faq.html">FAQ</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/officehours.html">Office hours</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/forum_email.html">Forum & email</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/resources.html">Essential resources</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/unixref/">Unix reference</a></li>
+     </ul>
+    </li>
+  </ul>
+
+<ul class="nav navbar-nav navbar-right">
+  <li>
+    <form class="navbar-form navbar-right" id="search-query" action="https://web.stanford.edu/class/cs107/search">
+      <div class="form-group"><input type="text" class="form-control input-sm" size="17" placeholder="Search CS107 site" name="q"></div>
+      <button type="submit" class="btn btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+    </form>
+  </li>
+</ul>
+
+        </div>
+    </div>
+
+    <div class="container">
+      <div id="title">Guide to x86-64</div>
+      <div id="main">
+
+
+
+
+
+  <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12" id="main_for_toc">
+    
+<p id="attribution">A CS107 joint staff effort (Erik, Julie, Nate)</p>
+<p>x86-64 (also known as just x64 and/or AMD64) is the 64-bit version of the x86/IA32 instruction set. Below is our overview of its features that are relevant to CS107. There is more extensive coverage on these topics in Chapter 3 of the B&amp;O textbook. See also our <a href="/class/cs107/resources/onepage_x86-64.pdf">x86-64 sheet</a> for a compact one-page reference.</p>
+<h1 id="registers">Registers</h1>
+<p>The table below lists the commonly used registers (sixteen general-purpose plus two special). Each register is 64 bits wide; the lower 32-, 16- and 8-bit portions are selectable by a pseudo-register name. Some registers are designated for a certain purpose, such as <code>%rsp</code> being used as the stack pointer or <code>%rax</code> for the return value from a function. Other registers are all-purpose, but have a conventional use depending on whether <strong>caller-owned</strong> or <strong>callee-owned</strong>. If the function <code>binky</code> calls <code>winky</code>, we refer to <code>binky</code> as the <em>caller</em> and <code>winky</code> as the <em>callee</em>. For example, the registers used for the first 6 arguments and return value are all callee-owned. The callee can freely use those registers, overwriting existing values without taking any precautions. If <code>%rax</code> holds a value the caller wants to retain, the caller must copy the value to a "safe" location before making a call. The callee-owned registers are ideal for scratch/temporary use by the callee.  In contrast, if the callee intends to use a caller-owned register, it must first preserve its value and restore it before exiting the call. The caller-owned registers are used for local state of the caller that needs to preserved across further function calls.</p>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th>Register</th>
+<th>Conventional use</th>
+<th>Low 32-bits</th>
+<th>Low 16-bits</th>
+<th>Low 8-bits</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%rax</code></td>
+<td>Return value, callee-owned</td>
+<td><code>%eax</code></td>
+<td><code>%ax</code></td>
+<td><code>%al</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%rdi</code></td>
+<td>1st argument, callee-owned</td>
+<td><code>%edi</code></td>
+<td><code>%di</code></td>
+<td><code>%dil</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%rsi</code></td>
+<td>2nd argument, callee-owned</td>
+<td><code>%esi</code></td>
+<td><code>%si</code></td>
+<td><code>%sil</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%rdx</code></td>
+<td>3rd argument, callee-owned</td>
+<td><code>%edx</code></td>
+<td><code>%dx</code></td>
+<td><code>%dl</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%rcx</code></td>
+<td>4th argument, callee-owned</td>
+<td><code>%ecx</code></td>
+<td><code>%cx</code></td>
+<td><code>%cl</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%r8</code></td>
+<td>5th argument, callee-owned</td>
+<td><code>%r8d</code></td>
+<td><code>%r8w</code></td>
+<td><code>%r8b</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%r9</code></td>
+<td>6th argument, callee-owned</td>
+<td><code>%r9d</code></td>
+<td><code>%r9w</code></td>
+<td><code>%r9b</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%r10</code></td>
+<td>Scratch/temporary, callee-owned</td>
+<td><code>%r10d</code></td>
+<td><code>%r10w</code></td>
+<td><code>%r10b</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%r11</code></td>
+<td>Scratch/temporary, callee-owned</td>
+<td><code>%r11d</code></td>
+<td><code>%r11w</code></td>
+<td><code>%r11b</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%rsp</code></td>
+<td>Stack pointer, caller-owned</td>
+<td><code>%esp</code></td>
+<td><code>%sp</code></td>
+<td><code>%spl</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%rbx</code></td>
+<td>Local variable, caller-owned</td>
+<td><code>%ebx</code></td>
+<td><code>%bx</code></td>
+<td><code>%bl</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%rbp</code></td>
+<td>Local variable, caller-owned</td>
+<td><code>%ebp</code></td>
+<td><code>%bp</code></td>
+<td><code>%bpl</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%r12</code></td>
+<td>Local variable, caller-owned</td>
+<td><code>%r12d</code></td>
+<td><code>%r12w</code></td>
+<td><code>%r12b</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%r13</code></td>
+<td>Local variable, caller-owned</td>
+<td><code>%r13d</code></td>
+<td><code>%r13w</code></td>
+<td><code>%r13b</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%r14</code></td>
+<td>Local variable, caller-owned</td>
+<td><code>%r14d</code></td>
+<td><code>%r14w</code></td>
+<td><code>%r14b</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%r15</code></td>
+<td>Local variable, caller-owned</td>
+<td><code>%r15d</code></td>
+<td><code>%r15w</code></td>
+<td><code>%r15b</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%rip</code></td>
+<td>Instruction pointer</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>%eflags</code></td>
+<td>Status/condition code bits</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="addressing-modes">Addressing modes</h1>
+<p>True to its CISC nature, x86-64 supports a variety of addressing modes. An <em>addressing mode</em> is an expression that calculates an address in memory to be read/written to. These expressions are used as the source or destination for a <code>mov</code> instruction and other instructions that access memory. The code below demonstrates how to write the immediate value 1 to various memory locations in an example of each of the available addressing modes:</p>
+<pre><code>movl $1, 0x604892         # direct (address is constant value)
+movl $1, (%rax)           # indirect (address is in register %rax)
+
+movl $1, -24(%rbp)        # indirect with displacement 
+                            (address = base %rbp + displacement -24)
+
+movl $1, 8(%rsp, %rdi, 4) # indirect with displacement and scaled-index
+                            (address = base %rsp + displ 8 + index %rdi * scale 4)
+
+movl $1, (%rax, %rcx, 8) # (special case scaled-index, displ assumed 0)
+
+movl $1, 0x8(, %rdx, 4)  # (special case scaled-index, base assumed 0)
+
+movl $1, 0x4(%rax, %rcx) # (special case scaled-index, scale assumed 1)
+</code></pre>
+<h1 id="common-instructions">Common instructions</h1>
+<p><em>A note about instruction suffixes</em>: many instructions have a suffix (<code>b</code>, <code>w</code>, <code>l</code>, or <code>q</code>) which indicates the bitwidth of the operation (1, 2, 4, or 8 bytes, respectively). The suffix is often elided when the bitwidth can be determined from the operands. For example, if the destination register is <code>%eax</code>, it must be 4 bytes, if <code>%ax</code> it must be 2 bytes, and <code>%al</code> would be 1 byte. A few instructions such as <code>movs</code> and <code>movz</code> have two suffixes: the first is for the source operand, the second for the destination. For example, <code>movzbl</code> moves a 1-byte source value to a 4-byte destination.</p>
+<p>When the destination is a sub-register, only those specific bytes in the sub-register are written with one broad exception:  <strong>a 32-bit instruction zeroes the high order 32 bits of the destination register</strong>.</p>
+<h2 id="mov-and-lea">Mov and lea</h2>
+<p>By far most frequent instruction you'll encounter is <code>mov</code> in one of its its multi-faceted variants. Mov copies a value from source to destination. The source can be an immediate value, a register, or a memory location (expressed using one of the addressing mode expressions from above). The destination is either a register or a memory location. At most one of source or destination can be memory. The <code>mov</code> suffix (b, w, l, or q) indicates how many bytes are being copied (1, 2, 4, or 8 respectively). For the <code>lea</code> (load effective address) instruction, the source operand is a memory location (using an addressing mode from above) and it copies the calculated source <em>address</em> to destination. Note that <code>lea</code> does not dereference the source address, it simply calculates its location. This means <code>lea</code> is nothing more than an arithmetic operation and commonly used to calculate the value of simple linear combinations that have nothing to do with memory locations!</p>
+<pre><code>mov src, dst              # general form of instruction dst = src
+mov $0, %eax              # %eax = 0
+movb %al, 0x409892        # write to address 0x409892 low-byte of %eax
+mov 8(%rsp), %eax         # %eax = value read from address %rsp + 8
+
+lea 0x20(%rsp), %rdi      # %rdi = %rsp + 0x20 (no dereference!)
+lea (%rdi,%rdx,1), %rax   # %rax = %rdi + %rdx
+</code></pre>
+<p>The <code>mov</code> instruction copies the same number of bytes from one location to another. In situations where the move is copying a smaller bitwidth to a larger, the <code>movs</code> and <code>movz</code> variants are used to specify how to fill the additional bytes, either sign-extend or zero-fill.</p>
+<pre><code>movsbl %al, %edx    # copy 1-byte %al, sign-extend into 4-byte %edx
+movzbl %al, %edx    # copy 1-byte %al, zero-extend into 4-byte %edx
+</code></pre>
+<p>A special case to note is that a <code>mov</code> to write a 32-bit value into a register also zeroes the upper 32 bits of the register by default, i.e does an implicit zero-extend to bitwidth q. This explains use of instructions such as <code>mov %ebx, %ebx</code> that look odd/redundant, but are, in fact, being used to zero-extend from 32 to 64. Given this default behavior, there is no need for an explicit <code>movzlq</code> instruction. To instead sign-extend from 32-bit to 64-bit, there is an <code>movslq</code> instruction. </p>
+<p>The <code>cltq</code> instruction is a specialized <code>movs</code> that operates on <code>%rax</code>. This no-operand instruction does sign-extension in-place on <code>%rax</code>; source bitwidth is l, destination bitwidth is q.</p>
+<pre><code>cltq           # operates on %rax, sign-extend 4-byte src to 8-byte dst
+                 shorthand for movslq %eax,%rax
+</code></pre>
+<h2 id="arithmetic-and-bitwise-operations">Arithmetic and bitwise operations</h2>
+<p>The binary operations are generally expressed in a two-operand form where the second operand is both a source to the operation and the destination. The source can be an immediate constant, register, or memory location. The destination must be either register or memory. At most one of source or destination can be memory. The unary operations have one operand which is both source and destination, which can be either register or memory. Many of the arithmetic instructions are used for both signed and unsigned types, i.e. there is not a signed add and unsigned add, the same instruction is used for both. Where needed, the condition codes set by the operation can be used to detect the different kinds of overflow.</p>
+<pre><code>add src, dst       # dst += src
+sub src, dst       # dst -= src
+imul src, dst      # dst *= src
+neg dst            # dst = -dst (arithmetic inverse)
+
+and src, dst       # dst &amp;= src
+or src, dst        # dst |= src
+xor src, dst       # dst ^= src
+not dst            # dst = ~dst (bitwise inverse)
+
+shl count, dst     # dst &lt;&lt;= count (left shift dst by count positions), synonym sal
+sar count, dst     # dst &gt;&gt;= count (arithmetic right shift dst by count positions)
+shr count, dst     # dst &gt;&gt;= count (logical right shift dst by count positions)
+
+# some instructions have special-case variants with different number of operands
+imul src           # single operand imul assumes other operand in %rax
+                     computes 128-bit result, stores high 64-bits in %rdx, low 64-bits in %rax
+shl dst            # dst &lt;&lt;= 1   (no count =&gt; assume 1, same for sar, shr, sal)
+</code></pre>
+<h2 id="branches-and-other-use-of-condition-codes">Branches and other use of condition codes</h2>
+<p>The special <code>%eflags</code> register stores a set of boolean flags called the <em>condition codes</em>. Most arithmetic operations update those codes. A conditional jump reads the condition codes to determine whether to take the branch or not. The condition codes include ZF (zero flag), SF (sign flag), OF (overflow flag, signed), and CF (carry flag, unsigned). For example, if the result was zero, the ZF is set, if a operation overflowed (into sign bit), OF is set.</p>
+<p>The general pattern for all branches is to execute a <code>cmp</code> or <code>test</code> operation to set the flags followed by a jump instruction variant that reads the flags to determine whether to take the branch or continue on. The operands to a <code>cmp</code> or <code>test</code> are immediate, register, or memory location (with at most one memory operand). There are 32 variants of conditional jump, several of which are synonyms. Here are some example branch instructions.</p>
+<pre><code>cmpl op2, op1    # computes result = op1 - op2, discards result, sets condition codes
+test op2, op1    # computes result = op1 &amp; op2, discards result, sets condition codes
+
+jmp target    # unconditional jump
+je  target    # jump equal, synonym jz jump zero (ZF=1)
+jne target    # jump not equal, synonym jnz jump non zero (ZF=0)
+jl  target    # jump less than, synonym jnge jump not greater or equal (SF!=OF)
+jle target    # jump less or equal, synonym jng jump not greater (ZF=1 or SF!=OF)
+jg  target    # jump greater than, synonym jnle jump not less or equal (ZF=0 and SF=OF)
+jge target    # jump greater or equal, synonym jnl jump not less (SF=OF)
+ja  target    # jump above, synonym jnbe jump not below or equal (CF=0 and ZF=0)
+jb  target    # jump below, synonym jnae jump not above or equal (CF=1)
+js  target    # jump signed (SF=1)
+jns target    # jump not signed (SF=0)
+</code></pre>
+<h3 id="setx-and-movx">Setx and movx</h3>
+<p>There are two other families of instructions that read/react to the current condition codes. The <code>setx</code> instructions set a destination register to 0 or 1 according to the status of condition <code>x</code>. The <code>cmovx</code> instructions will conditionally execute a move based on whether condition <code>x</code> holds. The <code>x</code> is a placeholder for any of the conditional variants: <code>e</code>, <code>ne</code>, <code>s</code>, <code>ns</code>, etc.</p>
+<pre><code>sete dst           # set dst to 0 or 1 based on zero/equal condition
+setge dst          # set dst to 0 or 1 based on greater/equal condition
+cmovns src, dst    # proceed with mov if ns condition holds
+cmovle src, dst    # proceed with mov if le condition holds
+</code></pre>
+<p>For the <code>setx</code> instruction, the destination must be a single-byte sub-register (e.g. <code>%al</code> for the low byte of <code>%rax</code>). For the <code>cmovx</code> instructions, both the source and destination must be registers.</p>
+<h2 id="function-call-stack">Function call stack</h2>
+<p>The <code>%rsp</code> register is used as the "stack pointer"; <code>push</code> and <code>pop</code> are used to add/remove values from the stack. The <code>push</code> instruction takes one operand: an immediate, a register, or a memory location. Push decrements <code>%rsp</code> and copies the operand to be tompost on the stack. The <code>pop</code> instruction takes one operand, the destination register. Pop copies the topmost value to destination and increments <code>%rsp</code>.  It is also valid to directly adjust <code>%rsp</code> to add/remove an entire array or a collection of variables with a single operation. Note the stack grows downward (toward lower addresses).</p>
+<pre><code>push %rbx         # push value of %rbx onto stack
+pushq $0x3        # push immediate value 3 onto stack
+sub $0x10, %rsp   # adjust stack pointer to set aside 16 more bytes
+
+pop %rax          # pop topmost value from stack into register %rax
+add $0x10, %rsp   # adjust stack point to remove topmost 16 bytes
+</code></pre>
+<p>Call/return are used to transfer control between functions. The <code>callq</code> instruction takes one operand, the address of the function being called. It pushes the return address (current value of <code>%rip</code>, which is the next instruction after the call) onto the stack and then jumps to the address of the function being called. The <code>retq</code> instruction pops the return address from the stack into <code>%rip</code>, thus resuming at the saved return address.</p>
+<p>To set up for a call, the caller puts the first six arguments into registers <code>%rdi</code>, <code>%rsi</code>, <code>%rdx</code>, <code>%rcx</code>, <code>%r8</code>, and<code>%r9</code> (any additional arguments are pushed onto the stack) and then executes the <code>call</code> instruction.</p>
+<pre><code>mov $0x3, %rdi    # first arg is passed in %rdi
+mov $0x7, %rsi    # second arg is passed in %rsi
+callq binky       # transfers control to function binky
+</code></pre>
+<p>When callee finishes, it writes the return value (if any) to <code>%rax</code>, cleans up the stack, and use <code>retq</code> instruction to return control to the caller.</p>
+<pre><code>mov $0x0, %eax    # write return value to %rax
+add $0x10, %rsp   # deallocate stack frame
+retq              # return from current function, resume caller
+</code></pre>
+<p>The target for a branch or call instruction is most typically an absolute address that was determined at compile-time. However there are cases where the target is not known until runtime, such as a <code>switch</code> statement compiled into a jump table or when invoking a function pointer. For these, the target address is computed and stored in a register and the branch/call variant is used <code>je *%rax</code> or <code>callq *%rax</code> to read the target address from the specified register.</p>
+<h1 id="assembly-and-gdb">Assembly and gdb</h1>
+<p>The debugger has many features that allow you to trace and debug code at the assembly level. You can print the value in a register by prefixing its name with <code>$</code> or use the command <code>info reg</code> to dump the values of all registers:</p>
+<pre><code>(gdb) p $rsp
+(gdb) info reg
+</code></pre>
+<p>The <code>disassemble</code> command will print the disassembly for a function by name. The <code>x</code> command supports an <code>i</code> format which interprets the contents of a memory address as an encoded instruction.</p>
+<pre><code>(gdb) disassemble main   // disassemble, print all instructions of main
+(gdb) x/8i main          // disassemble, print first 8 instructions
+</code></pre>
+<p>You can set a breakpoint a particular assembly instruction by its direct address or offset within a function</p>
+<pre><code>(gdb) b *0x08048375
+(gdb) b *main+7          // break at instruction 7 bytes into main
+</code></pre>
+<p>You can advance by instruction (instead of source line) using the <code>stepi</code> and <code>nexti</code> commands.</p>
+<pre><code>(gdb) stepi
+(gdb) nexti
+</code></pre>
+  </div>
+  <div class="toc-column col-lg-1 col-md-1 col-sm-1 hidden-xs">
+    <div id="toc" class="toc" data-spy="affix" data-offset-top="0"></div>
+  </div> 
+
+</div>
+
+
+  <script src="https://web.stanford.edu/class/cs107/assets/tocbot.min.js"></script>
+  <link rel="stylesheet" href="https://web.stanford.edu/class/cs107/assets/tocbot.css">
+
+  <script>
+    tocbot.init({
+      // Where to render the table of contents.
+      tocSelector: '#toc',
+      // Where to grab the headings to build the table of contents.
+      contentSelector: '#main_for_toc',
+      // Which headings to grab inside of the contentSelector element.
+      headingSelector: 'h1, h2, h3',
+    });
+  </script>
+</div>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  </body>
+</html>

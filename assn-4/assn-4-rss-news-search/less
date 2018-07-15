@@ -1,0 +1,2 @@
+gcc rss-news-search.o -g -Wall -std=gnu99 -Wno-unused-function -g  -lnsl -lrssnews -L/usr/class/cs107/assignments/assn-4-rss-news-search-lib/ -v -o rss-news-search
+Makefile:32: recipe for target 'rss-news-search' failed

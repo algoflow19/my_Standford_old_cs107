@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CS107 Unix Reference</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   
+    <link href="https://web.stanford.edu/class/cs107/assets/stylesheet.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+
+    <script>
+      (function() {
+        var cx = '003265255082301896483:sq5n7qoyfh8';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
+    </script>
+  </head>
+
+  <body>
+
+      <div class="navbar navbar-custom" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="https://web.stanford.edu/class/cs107/index.html">CS107 Spring 2018</a>
+        </div>
+        <div class="navbar-collapse collapse">
+        
+  <ul class="nav navbar-nav">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Course materials <span class="glyphicon glyphicon-triangle-bottom"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="https://web.stanford.edu/class/cs107/admin.html">Admin</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/syllabus.html">Syllabus</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/labs.html">Labs</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/assignments.html">Assignments</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/exams.html">Exams</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/cgi-bin/gradebook">Gradebook</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting help <span class="glyphicon glyphicon-triangle-bottom"></span></a>
+      <ul class="dropdown-menu">
+        <li><a href="https://web.stanford.edu/class/cs107/faq.html">FAQ</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/officehours.html">Office hours</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/forum_email.html">Forum & email</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/resources.html">Essential resources</a></li>
+        <li><a href="https://web.stanford.edu/class/cs107/unixref/">Unix reference</a></li>
+     </ul>
+    </li>
+  </ul>
+
+<ul class="nav navbar-nav navbar-right">
+  <li>
+    <form class="navbar-form navbar-right" id="search-query" action="https://web.stanford.edu/class/cs107/search">
+      <div class="form-group"><input type="text" class="form-control input-sm" size="17" placeholder="Search CS107 site" name="q"></div>
+      <button type="submit" class="btn btn-sm"><span class="glyphicon glyphicon-search"></span></button>
+    </form>
+  </li>
+</ul>
+
+        </div>
+    </div>
+
+    <div class="container">
+      <div id="title">Unix Reference</div>
+      <div id="main">
+
+
+
+
+
+  
+<h2 id="gdb-the-command-line-debugger"><code>gdb</code> (the command-line debugger)</h2>
+<p><a href="https://youtu.be/uhIt8YqtmuQ">Video</a></p>
+<p>Unlike the debugger you may have used in cs106A or cs106B, we will be
+using a command-line debugger, called <code>gdb</code> (the "Gnu Debugger"). <code>gdb</code>
+is a powerful tool, and you will use it very frequently in cs107. It
+would be a good idea to start familiarizing yourself with how to use
+<code>gdb</code> as soon as possible.</p>
+<p>This page will list the basic <code>gdb</code> commands you will need to use
+as you progress through cs107. However, it takes practice to become
+proficient in using the tool, and <code>gdb</code> is a large program that has 
+a tremendous number of features.</p>
+<p><strong>Compiling for <code>gdb</code></strong>: <code>gcc</code> does not automatically put debugging
+information into the executable program, but our <a href="make">Makefiles</a>
+all include the <code>-g -Og</code> flags that give <code>gdb</code> information about
+our programs so we can use the debugger efficiently. If we want to
+compile our program directly, we write:</p>
+<pre><code>$ gcc -g -Og square.c -o square
+$
+</code></pre>
+
+<p><strong>Running <code>gdb</code></strong>: To run <code>gdb</code>, you generally provide it with a program:</p>
+<pre><code>$ gdb square
+GNU gdb (Ubuntu 7.7.1-0ubuntu5~14.04.3) 7.7.1
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;
+and &quot;show warranty&quot; for details.
+This GDB was configured as &quot;x86_64-linux-gnu&quot;.
+Type &quot;show configuration&quot; for configuration details.
+For bug reporting instructions, please see:
+&lt;http://www.gnu.org/software/gdb/bugs/&gt;.
+Find the GDB manual and other documentation resources online at:
+&lt;http://www.gnu.org/software/gdb/documentation/&gt;.
+For help, type &quot;help&quot;.
+Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;...
+Reading symbols from square...done.
+(gdb)
+</code></pre>
+
+<p>The <code>(gdb)</code> prompt is where you start typing your commands.</p>
+<p>In <code>gdb</code>, if you simply type the enter key, the last command will
+be re-run. This is nice if you are stepping through a program
+line-by-line: you can use the <code>next</code> command once, and then hitting
+the enter key will re-run the <code>next</code> command again without you having
+to type the command.</p>
+<p>Also, many commands can be abbreviated, as noted below.</p>
+<p>There are a number of commands that you should be familiar with:</p>
+<ol>
+<li><code>help command</code> (abbr: <code>h command</code>) and <code>apropos keyword</code> (abbr: `appr keyword):
+Provides help (information) about a particular command or keyword.</li>
+<li><code>info x</code> (abbr: <code>i x</code>): provides information about your program, such
+as the breakpoints, the functions, etc.</li>
+<li><code>run</code> (abbr: <code>r</code>): The <code>run</code> command runs your program. You can enter
+command line arguments after the command, if your program requires them.
+If you are already running your program and you want to re-run it, you
+should answer <code>y</code> to the prompt that says, "The program being debugged
+has been started already. // Start it from the beginning? (y or n)"</li>
+<li><code>list</code> (abbr: <code>l</code>): The <code>list</code> command lists your program either from
+the beginning, or with a range around where you are currently stopped.</li>
+<li><code>next</code> (abbr: <code>n</code>): The <code>next</code> command steps to the next program line
+and <em>completely runs functions</em>. This is important: if you have a function
+(even one you didn't write) and you use <code>next</code>, the function will run
+to completion, and will stop at the next line after the function (unless
+there is a breakpoint inside the function).</li>
+<li><code>step</code> (abbr: <code>s</code>): The <code>step</code> command is similar to <code>next</code>, but it will
+step into functions. This means that it will attempt to go to the first
+line in a function if there is a function on the current line. Importantly,
+it will also take you into functions you didn't write (such as <code>printf</code>),
+which can be annoying (you should use <code>next</code> instead). If you do accidentally
+step into a function, you can use the <code>finish</code> command (see below) to finish
+the function immediately and go back to the next line after the function.</li>
+<li><code>continue</code> (abbr: <code>c</code>): This will continue running the program until 
+the next breakpoint or until the program ends.</li>
+<li><code>print x</code> (abbr: <code>p x</code>): This very important command lets you see the
+value of a variable when you are stopped in a program. If you see the error
+"No symbol xxxx in current context", or the error, "optimized out", you
+probably aren't in a place in the program where you can read the variable.</li>
+<li><code>break x</code> (abbr: <code>b x</code>): This will put a breakpoint in the program 
+at a function or a particular line. If you have multiple files, 
+you should use <code>break file:lineNum</code>.</li>
+<li><code>clear</code> and <code>delete x</code>: used to delete breakpoints. <code>clear</code> removes
+the breakpoint on a particular line, and <code>delete x</code> removes a breakpoint
+by line number. Use <code>info breakpoints</code> to see all breakpoints.</li>
+<li><code>where</code> (abbr: <code>whe</code>): This will print a stack trace to let you know 
+where in the program you are currently stopped. This is a useful command
+if your program has a segmentation fault: the <code>where</code> command will tell you
+the last place in your program that had the problem (sometimes you need
+to look at the entire stack trace to go back to the last line your
+program tried to execute).</li>
+<li><code>up</code> and <code>down</code>: These commands allow you to go up and down the stack
+trace. For instance, if you are inside a function and what to see the
+status of variables from the calling function, you can use <code>up</code> to place
+the program into the calling function, and then use <code>p variable</code> to 
+look at the state of the program in that function. You would then use
+<code>down</code> to go back to the function that was called.</li>
+<li><code>finish</code>: runs a function until it completes, which is helpful if you
+accidentally step into a function.</li>
+<li><code>disassemble</code> (abbr: <code>disas</code>): dissassembles your program into
+assembly language. We will be discussing this in depth in cs107.</li>
+<li><code>ctrl-x, ctrl-a</code> (go into or leave <a href="https://sourceware.org/gdb/onlinedocs/gdb/TUI.html#TUI">"TUI"</a>
+mode): <code>gdb</code> has a mode that
+shows you source code, or assembly output in a manner that allows you to 
+scroll up and down. It is useful but sometimes can be a bit buggy. You will
+want to learn the "ctrl-L" command to refresh the display.</li>
+</ol>
+<p>The following capture is a typical <code>gdb</code> session. Lines that start with
+<code>(gdb) # some text</code> are comments.</p>
+<p>We will be looking at this simple program below:</p>
+<pre><code>#include&lt;stdlib.h&gt;
+#include&lt;stdio.h&gt;
+
+int square(int x);
+
+int main(int argc, char *argv[]) {
+    printf(&quot;This program will square an integer.\n&quot;);
+
+    // the program should have one number as an argument
+    if (argc != 2) {
+        printf(&quot;Usage:\n\t./square number\n&quot;);
+        return 0;
+    }
+
+    // the first argument after the filename
+    int numToSquare = atoi(argv[1]);
+
+    int squaredNum = square(numToSquare);
+
+    printf(&quot;%d squared is %d\n&quot;,numToSquare,squaredNum);
+
+    return 0;
+}
+
+
+int square(int x) {
+    int sq = x * x;
+    return sq;
+}
+</code></pre>
+
+<pre><code>(gdb) # the &quot;run&quot; command runs the program, and we need to remember to put a command line argument if we need one. Let's try it without an argument:
+(gdb) run
+Starting program: /afs/.ir.stanford.edu/users/c/g/cgregg/cs107/assignments/assign5/square
+This program will square an integer.
+Usage:
+    ./square number
+[Inferior 1 (process 14146) exited normally]
+(gdb)
+(gdb) # the program caught that we tried to run without a number.
+(gdb) # let's run it again with 25 as the argument:
+(gdb) run 25
+Starting program: /afs/.ir.stanford.edu/users/c/g/cgregg/cs107/assignments/assign5/square 25
+This program will square an integer.
+25 squared is 625
+[Inferior 1 (process 14132) exited normally]
+(gdb) # we successfully ran the program. To look at the program, you can
+(gdb) # type 'list' or just 'l':
+(gdb) l
+1   #include&lt;stdlib.h&gt;
+2   #include&lt;stdio.h&gt;
+3
+4   int square(int x);
+5
+6   int main(int argc, char *argv[]) {
+7       printf(&quot;This program will square an integer.\n&quot;);
+8
+9       // the program should have one number as an argument
+10      if (argc != 2) {
+(gdb) # we type the return key to see the next lines, or just 'l' again:
+(gdb) l
+11          printf(&quot;Usage:\n\t./square number\n&quot;);
+12          return 0;
+13      }
+14
+15      // the first argument after the filename
+16      int numToSquare = atoi(argv[1]);
+17
+18      int squaredNum = square(numToSquare);
+19
+20      printf(&quot;%d squared is %d\n&quot;,numToSquare,squaredNum);
+(gdb)
+21
+22      return 0;
+23  }
+24
+25
+26  int square(int x) {
+27      int sq = x * x;
+28      return sq;
+29  }
+30
+(gdb) # when debugging, we often want to stop at a particular place
+(gdb) # in our code. We can set breakpoints at a line, or at a function.
+(gdb) break main
+Breakpoint 1 at 0x4005f3: file square.c, line 6.
+(gdb) break 20
+Breakpoint 2 at 0x40064e: file square.c, line 20.
+(gdb) # now there are two breakpoints in the code. When we run the program
+(gdb) # again, it will stop on the first line:
+(gdb) run 25
+Starting program: /afs/.ir.stanford.edu/users/c/g/cgregg/cs107/assignments/assign5/square 25
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffeab8) at square.c:6
+6   int main(int argc, char *argv[]) {
+(gdb) # now we are stopped. A nice command is the &quot;where&quot; command to tell
+(gdb) # you exactly where you stopped:
+(gdb) where
+#0  main (argc=2, argv=0x7fffffffeab8) at square.c:6
+(gdb) # if we type &quot;l&quot; again, we will get a list surrounding that line:
+(gdb) l
+1   #include&lt;stdlib.h&gt;
+2   #include&lt;stdio.h&gt;
+3
+4   int square(int x);
+5
+6   int main(int argc, char *argv[]) {
+7       printf(&quot;This program will square an integer.\n&quot;);
+8
+9       // the program should have one number as an argument
+10      if (argc != 2) {
+(gdb) # there are three commands that will continue the program.
+(gdb) # the first command is &quot;next&quot; (or just &quot;n&quot;), which is the
+(gdb) # &quot;step over&quot; command. It will run one line in your program, and
+(gdb) # it will step over functions -- i.e., it will run a function
+(gdb) # and not go into it.
+(gdb) n
+7       printf(&quot;This program will square an integer.\n&quot;);
+(gdb) n
+This program will square an integer.
+10      if (argc != 2) {
+(gdb) # now we are on line 10. We can use a different command, &quot;step&quot; to
+(gdb) # go forward, as well, but &quot;step&quot; will go into a function if there
+(gdb) # is a function to go into:
+(gdb) s
+11          printf(&quot;Usage:\n\t./square number\n&quot;);
+(gdb) s
+printf (__fmt=&lt;optimized out&gt;)
+    at /usr/include/x86_64-linux-gnu/bits/stdio2.h:104
+104   return __printf_chk (__USE_FORTIFY_LEVEL - 1, __fmt, __va_arg_pack ());
+(gdb) # oops! We stepped into the &quot;printf&quot; function! We can get back to our
+(gdb) # program by typing the &quot;finish&quot; command:
+(gdb) finish
+Run till exit from #0  printf (__fmt=&lt;optimized out&gt;)
+    at /usr/include/x86_64-linux-gnu/bits/stdio2.h:104
+Usage:
+    ./square number
+12          return 0;
+(gdb) # The final way to continue is to type &quot;continue&quot;, which runs the
+(gdb) # program to completion, or to the next breakpoint.
+(gdb) continue
+Continuing.
+
+Breakpoint 2, main (argc=&lt;optimized out&gt;, argv=0x7fffffffeab8) at square.c:23
+23  }
+(gdb) continue
+Continuing.
+[Inferior 1 (process 14154) exited normally]
+(gdb) # let's run it again with the proper argument
+(gdb) run 25
+Starting program: /afs/.ir.stanford.edu/users/c/g/cgregg/cs107/assignments/assign5/square 25
+
+Breakpoint 1, main (argc=2, argv=0x7fffffffeab8) at square.c:6
+6   int main(int argc, char *argv[]) {
+(gdb) n
+7       printf(&quot;This program will square an integer.\n&quot;);
+(gdb) n
+This program will square an integer.
+10      if (argc != 2) {
+(gdb) n
+16      int numToSquare = atoi(argv[1]);
+(gdb) n
+18      int squaredNum = square(numToSquare);
+(gdb) # now if we want to step into the square() function, we can, with s
+(gdb) s
+square (x=25) at square.c:27
+27      int sq = x * x;
+(gdb) where
+#0  square (x=25) at square.c:27
+#1  0x0000000000400636 in main (argc=&lt;optimized out&gt;, argv=0x7fffffffeab8)
+    at square.c:18
+(gdb) # the where command gives us a stack trace, and we can see that
+(gdb) # we are inside the square function, on line 27.
+(gdb) # We can take a look at variables here, too, with the 'p' command:
+(gdb) p x
+$1 = 25
+(gdb) # &quot;p x&quot; says &quot;print x&quot;
+(gdb) # let's list the area around where we stopped
+(gdb) l
+22      return 0;
+23  }
+24
+25
+26  int square(int x) {
+27      int sq = x * x;
+28      return sq;
+29  }
+30
+31
+(gdb) where
+#0  square (x=25) at square.c:27
+#1  0x0000000000400636 in main (argc=&lt;optimized out&gt;, argv=0x7fffffffeab8)
+    at square.c:18
+(gdb) # we can go one step forward using next or step
+(gdb) n
+29  }
+(gdb) p sq
+$2 = 625
+(gdb) # we can look at the value of sq
+(gdb) finish
+Run till exit from #0  square (x=25) at square.c:29
+main (argc=&lt;optimized out&gt;, argv=0x7fffffffeab8) at square.c:20
+20      printf(&quot;%d squared is %d\n&quot;,numToSquare,squaredNum);
+Value returned is $3 = 625
+(gdb) l
+15      // the first argument after the filename
+16      int numToSquare = atoi(argv[1]);
+17
+18      int squaredNum = square(numToSquare);
+19
+20      printf(&quot;%d squared is %d\n&quot;,numToSquare,squaredNum);
+21
+22      return 0;
+23  }
+24
+(gdb) n
+25 squared is 625
+
+Breakpoint 2, main (argc=&lt;optimized out&gt;, argv=0x7fffffffeab8) at square.c:23
+23  }
+(gdb) # we just called printf to print the result
+(gdb) cont
+Continuing.
+[Inferior 1 (process 15818) exited normally]
+(gdb)
+</code></pre>
+
+<p><a href="..">Back to contents</a></p>
+
+</div>
+
+</div>
+    </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  </body>
+</html>
