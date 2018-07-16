@@ -13,9 +13,12 @@
  * the vector can refer to elements via (void *) ptrs.
  */
 
-#ifndef __vector_
-#define __vector_
+#ifndef _vector_
+#define _vector_
+
 #include "bool.h"
+
+
 
 /**
  * Type: VectorCompareFunction
@@ -27,7 +30,7 @@
  * using the same convention as the strcmp library function:
  * 
  *   If elemAddr1 is less than elemAddr2, return a negative number.
- *   If elemAddr2 is greater than elemAddr2, return a positive number.
+ *   If elemAddr1 is greater than elemAddr2, return a positive number.
  *   If the two elements are equal, return 0.
  */
 
@@ -66,13 +69,17 @@ typedef void (*VectorFreeFunction)(void *elemAddr);
  * vector using those functions defined in this file.
  */
 
-typedef struct vector {
-  void *elems;
-  int logicalLength;
-  int allocatedLength;
-  int allocationChunk;
+typedef struct {
+  int logicSLength;
+  int allocLength;
+  int initAllocLength;
   int elemSize;
-  VectorFreeFunction freeFn;
+  void * datas;
+  VectorFreeFunction freeFun;
+
+//VectorCompareFunction compareFun;
+//VectorMapFunction mapFun;
+
 } vector;
 
 /** 
@@ -125,7 +132,7 @@ typedef struct vector {
  * the initialAllocation value is less than 0.
  */
 
-void VectorNew(struct vector *v, int elemSize, VectorFreeFunction freefn, int initialAllocation);
+void VectorNew(vector *v, int elemSize, VectorFreeFunction freefn, int initialAllocation);
 
 /**
  * Function: VectorDispose
@@ -222,7 +229,7 @@ void VectorReplace(vector *v, const void *elemAddr, int position);
  */
 
 void VectorDelete(vector *v, int position);
-
+  
 /* 
  * Function: VectorSearch
  * ----------------------
