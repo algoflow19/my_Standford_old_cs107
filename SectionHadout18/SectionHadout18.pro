@@ -5,12 +5,15 @@ CONFIG -= qt
 
 SOURCES += \
         main.c \
-    vector.c
+    vector.c \
+    hashset.c
 
 HEADERS += \
     sparsestringarray.h \
     bool.h \
-    vector.h
+    vector.h \
+    multitable.h \
+    hashset.h
 
 DISTFILES += \
     librssnews.a \
