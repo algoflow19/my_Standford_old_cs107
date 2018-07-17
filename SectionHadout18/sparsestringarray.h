@@ -10,7 +10,7 @@ typedef struct {
   bool *bitmap;
   vector strings;
 } group;
-
+z
 
 typedef struct {
   group *groups;
@@ -68,7 +68,7 @@ void SSANew(sparsestringarray *ssa, int arrayLength, int groupSize){
 
   ssa->arrayLength=arrayLength;
   ssa->groupSize=groupSize;
-  ssa->numGroups=arrayLength/groupSize;
+  ssa->numGroups=(arrayLength-1)/groupSize + 1;  // Also you can consider the not even divided status.
   ssa->groups=malloc(sizeof(group)*ssa->numGroups);
   assert(ssa->groups!=NULL);
   memset(ssa->groups,0,sizeof(group)*ssa->numGroups);

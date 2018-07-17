@@ -64,11 +64,7 @@ void multiValuesMap(void *keyValuesPair,auxDataUnit *auxUnit){
 }
 
 void MultiTableMap(multitable *mt, MultiTableMapFunction map, void *auxData){
-  auxDataUnit aux;
-  aux.mt=mt;
-  aux.mtf=map;
-  aux.auxData=auxData;
-
+  auxDataUnit aux={mt,map,auxData};
   HashSetMap (& mt->mappings,multiValuesMap,&aux);
 }
 
