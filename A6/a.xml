@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet title="XSL_formatting" type="text/xsl" href="/shared/bsp/xsl/rss/nolsol.xsl"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+    <channel>
+        <title><![CDATA[BBC News - Business]]></title>
+        <description><![CDATA[BBC News - Business]]></description>
+        <link>https://www.bbc.co.uk/news/</link>
+        <image>
+            <url>https://news.bbcimg.co.uk/nol/shared/img/bbc_news_120x60.gif</url>
+            <title>BBC News - Business</title>
+            <link>https://www.bbc.co.uk/news/</link>
+        </image>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Mon, 23 Jul 2018 00:05:53 GMT</lastBuildDate>
+        <copyright><![CDATA[Copyright: (C) British Broadcasting Corporation, see http://news.bbc.co.uk/2/hi/help/rss/4498287.stm for terms and conditions of reuse.]]></copyright>
+        <language><![CDATA[en-gb]]></language>
+        <ttl>15</ttl>
+        <item>
+            <title><![CDATA[Recycled packaging 'may end up in landfill', warns watchdog]]></title>
+            <description><![CDATA[There is no guarantee that the products you recycle are actually recycled, the UK watchdog warns.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44905576</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44905576</guid>
+            <pubDate>Sun, 22 Jul 2018 23:05:43 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/9D52/production/_102647204_mediaitem102641683.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Holiday childcare: Five ways to beat the cost]]></title>
+            <description><![CDATA[Entertaining kids during the holidays is expensive, but some have found innovative ways to cut the cost.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44903741</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44903741</guid>
+            <pubDate>Sun, 22 Jul 2018 23:07:33 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/94CC/production/_102629083_img-20180719-wa0010.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Rise in lenders valuing homes below sale price]]></title>
+            <description><![CDATA["Down valuations" can lead to sales falling through and property chains collapsing.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44202542</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44202542</guid>
+            <pubDate>Sun, 22 Jul 2018 23:50:24 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/1772E/production/_102564069_wales.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Trade war a reality, French finance minister warns]]></title>
+            <description><![CDATA[Bruno Le Maire accuses the US of using "the law of the jungle" with unilateral tariffs]]></description>
+            <link>https://www.bbc.co.uk/news/business-44914145</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44914145</guid>
+            <pubDate>Sun, 22 Jul 2018 08:51:37 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/151C7/production/_101817468_gettyimages-932879422.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Homeless but working families rise by 73%, says Shelter]]></title>
+            <description><![CDATA[There's been a dramatic rise in the number of families who work but are still homeless, says charity.]]></description>
+            <link>https://www.bbc.co.uk/news/education-44904638</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/education-44904638</guid>
+            <pubDate>Sun, 22 Jul 2018 23:35:54 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/B218/production/_102629554_marysmithyoudie.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Retailer profit warnings double in year, says EY]]></title>
+            <description><![CDATA[The retail sector has been hit by rising costs and subdued spending, says EY report.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44915440</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44915440</guid>
+            <pubDate>Sun, 22 Jul 2018 09:41:20 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/736E/production/_100505592_banner2.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[UKTV: Dave and Gold among channels dropped by Virgin Media]]></title>
+            <description><![CDATA[About 4m households will no longer be able to watch shows such as Taskmaster and Red Dwarf.]]></description>
+            <link>https://www.bbc.co.uk/news/entertainment-arts-44915060</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/entertainment-arts-44915060</guid>
+            <pubDate>Sun, 22 Jul 2018 16:01:12 GMT</pubDate>
+            <media:thumbnail width="2048" height="1152" url="http://c.files.bbci.co.uk/15E0E/production/_102641698_taskmaster_getty.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Ryanair customers urged to claim compensation]]></title>
+            <description><![CDATA[The Civil Aviation Authority says airlines must give customers two-weeks notice or pay compensation.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-northern-ireland-44915579</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/uk-northern-ireland-44915579</guid>
+            <pubDate>Sun, 22 Jul 2018 09:23:03 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/AD24/production/_102642344_ryanair.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[How Netflix went from pioneer to powerhouse]]></title>
+            <description><![CDATA[Netflix started as a mail order DVD service, but it's now admired and feared by the biggest media firms.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44904368</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44904368</guid>
+            <pubDate>Sat, 21 Jul 2018 23:18:43 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/14FB1/production/_102573958_netflix1_reuters.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Dominic Raab: We can get Brexit deal done by October]]></title>
+            <description><![CDATA[But preparations have begun in case negotiations end without agreement, Brexit secretary says.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-politics-44913982</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/uk-politics-44913982</guid>
+            <pubDate>Sun, 22 Jul 2018 16:22:21 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/C502/production/_102643405_dr1a.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Fur sales: MPs call for consultation to ban real fur]]></title>
+            <description><![CDATA[Poor labelling means real fur is being sold in the High Street and online as fake fur, MPs say.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-politics-44913186</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/uk-politics-44913186</guid>
+            <pubDate>Sun, 22 Jul 2018 14:13:24 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/10CB9/production/_102639786_stellafauxfur_getty.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[India scraps tampon tax after campaign]]></title>
+            <description><![CDATA[The government introduced a 12% levy on sanitary products last year, sparking outrage.]]></description>
+            <link>https://www.bbc.co.uk/news/world-asia-india-44912742</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/world-asia-india-44912742</guid>
+            <pubDate>Sat, 21 Jul 2018 19:31:32 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/6F9D/production/_102637582_82e120c5-014c-4ebc-b458-3e81f5966b78.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[PayPoint: Energy payments fixed for customers]]></title>
+            <description><![CDATA[Terminals across the UK went down on Saturday but the company says the issue is now resolved.]]></description>
+            <link>https://www.bbc.co.uk/news/uk-44912071</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/uk-44912071</guid>
+            <pubDate>Sat, 21 Jul 2018 17:41:52 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/CB7D/production/_102639025_paypoint3.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Smart meters to cut energy bills by just £11, say MPs]]></title>
+            <description><![CDATA[MPs say smart meters will not deliver expected savings and their rollout will not meet a deadline.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44903471</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44903471</guid>
+            <pubDate>Sat, 21 Jul 2018 10:50:02 GMT</pubDate>
+            <media:thumbnail width="624" height="351" url="http://c.files.bbci.co.uk/E700/production/_99563195_mediaitem83605738.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Fiat Chrysler replaces CEO Sergio Marchionne for health reasons]]></title>
+            <description><![CDATA[Sergio Marchionne, 66, is replaced after suffering complications from shoulder surgery.]]></description>
+            <link>https://www.bbc.co.uk/news/world-europe-44913255</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/world-europe-44913255</guid>
+            <pubDate>Sat, 21 Jul 2018 17:54:40 GMT</pubDate>
+            <media:thumbnail width="2048" height="1152" url="http://c.files.bbci.co.uk/12E51/production/_102639377_hi046720674.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Landlords in legal challenge to House of Fraser rescue]]></title>
+            <description><![CDATA[In a legal challenge landlords say they have been unfairly treated in the rescue deal for House of Fraser.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44903784</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44903784</guid>
+            <pubDate>Fri, 20 Jul 2018 16:49:23 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/38D7/production/_101915541_house_of_fraser_alamy.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Six ways China could retaliate in a trade war]]></title>
+            <description><![CDATA[With the US President suggesting tariffs could hit $500bn of goods, China could retaliate in several ways.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44763110</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44763110</guid>
+            <pubDate>Fri, 20 Jul 2018 20:50:15 GMT</pubDate>
+            <media:thumbnail width="768" height="432" url="http://c.files.bbci.co.uk/137D8/production/_102623897_ubw0szvm.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Holidaymakers hit as pound falls]]></title>
+            <description><![CDATA[Britons heading abroad are seeing the poorest exchange rates for nine months.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44900164</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44900164</guid>
+            <pubDate>Fri, 20 Jul 2018 12:07:14 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/3E25/production/_96990951_gettyimages-481551026.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Trump 'ready' to tax all Chinese imports]]></title>
+            <description><![CDATA[The US president says he is prepared to slap tariffs on all $500bn of imports from China.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44898629</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44898629</guid>
+            <pubDate>Fri, 20 Jul 2018 13:17:53 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/1190B/production/_102474917_factorybag.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Ryanair pilot strike to continue next week]]></title>
+            <description><![CDATA[The Irish low-cost airline is facing a series of walkouts by staff over working conditions.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44887947</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44887947</guid>
+            <pubDate>Fri, 20 Jul 2018 14:17:54 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/9360/production/_102582773_ryanairlisbon.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[UK government borrowing at 11-year low]]></title>
+            <description><![CDATA[Public sector borrowing between April and June fell to the lowest level since 2007.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44898624</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44898624</guid>
+            <pubDate>Fri, 20 Jul 2018 09:32:27 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/4723/production/_101011281_yuribnzh.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Cadbury's Dairy Milk to offer low-sugar version]]></title>
+            <description><![CDATA[A new version of the famous bar will have almost a third less sugar, the owner of Cadbury announces]]></description>
+            <link>https://www.bbc.co.uk/news/business-44885840</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44885840</guid>
+            <pubDate>Fri, 20 Jul 2018 13:54:06 GMT</pubDate>
+            <media:thumbnail width="1183" height="665" url="http://c.files.bbci.co.uk/16581/production/_102612519_capture.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[US faces retaliation if car tariffs go ahead]]></title>
+            <description><![CDATA[The US is considering tariffs on foreign cars but the EU, Mexico and Canada say they would retaliate.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44894417</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44894417</guid>
+            <pubDate>Thu, 19 Jul 2018 21:02:22 GMT</pubDate>
+            <media:thumbnail width="2048" height="1152" url="http://c.files.bbci.co.uk/1761B/production/_102617759_hi048244017.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[James Packer: Australia tycoon quits boards amid focus on health]]></title>
+            <description><![CDATA[James Packer retreats from business life after a tumultuous period that affected him psychologically.]]></description>
+            <link>https://www.bbc.co.uk/news/world-australia-44892892</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/world-australia-44892892</guid>
+            <pubDate>Fri, 20 Jul 2018 06:57:58 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/BE8D/production/_102618784_gettyimages-866434686.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Poundworld to disappear from the High Street]]></title>
+            <description><![CDATA[The collapse means all 335 stores will have closed by 10 August with the loss of 5,100 jobs.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44891786</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44891786</guid>
+            <pubDate>Thu, 19 Jul 2018 17:09:15 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/B7F3/production/_101919074_ha8s8etf.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Japan's Kobe Steel indicted over quality scandal]]></title>
+            <description><![CDATA[Kobe Steel, which is Japan's third-largest steelmaker, first admitted to the wrongdoing last year.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44895564</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44895564</guid>
+            <pubDate>Fri, 20 Jul 2018 01:30:30 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/14503/production/_98530238__98269698_kobesteelreuters.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Comcast likely to be new owner of Sky]]></title>
+            <description><![CDATA[The US cable TV giant Comcast is likely to be the new owner of Sky after a lengthy takeover battle.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44893625</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44893625</guid>
+            <pubDate>Thu, 19 Jul 2018 18:57:16 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/1159F/production/_102617017_sky.sports.cameran.g.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Trump criticises US central bank's interest rate rises]]></title>
+            <description><![CDATA[Mr Trump says he is "not happy" with rising interest rates which he argues put the US at a disadvantage.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44894415</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44894415</guid>
+            <pubDate>Thu, 19 Jul 2018 19:22:16 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/E2DF/production/_98597085_trumpandpowell.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA['I violently, physically and mentally burnt out']]></title>
+            <description><![CDATA[What happens when the boss burns out]]></description>
+            <link>https://www.bbc.co.uk/news/business-44872908</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44872908</guid>
+            <pubDate>Sun, 22 Jul 2018 23:11:24 GMT</pubDate>
+            <media:thumbnail width="1024" height="575" url="http://c.files.bbci.co.uk/6B46/production/_102626472_p06f2qn3.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Kitty Hawk Flyer: 'A big drone that a human can fit in']]></title>
+            <description><![CDATA[A look inside the Kitty Hawk Flyer, a new flying car from the firm backed by Google's Larry Page.]]></description>
+            <link>https://www.bbc.co.uk/news/technology-44881229</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/technology-44881229</guid>
+            <pubDate>Thu, 19 Jul 2018 00:55:28 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/13AEC/production/_102602608_p06f42qf.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Teaching the elite to fly helicopters]]></title>
+            <description><![CDATA[State of the art airborne classrooms to help test pilots perfect their helicopter flying skills.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44875728</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44875728</guid>
+            <pubDate>Wed, 18 Jul 2018 12:38:01 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/13EBD/production/_102579518_p06f2832.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Business booming for giant cargo planes]]></title>
+            <description><![CDATA[$7tn of goods travel by air every year. Much of it goes in the hold of normal airliners. But for those big, awkward loads, something rather larger is required.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44863988</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44863988</guid>
+            <pubDate>Tue, 17 Jul 2018 23:17:13 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/1536F/production/_102559868_p06dzrkm.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Formula 1: The tech driving the races]]></title>
+            <description><![CDATA[BBC Click gets exclusive behind-the-scenes access to the technology behind F1.]]></description>
+            <link>https://www.bbc.co.uk/news/technology-44863358</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/technology-44863358</guid>
+            <pubDate>Tue, 17 Jul 2018 23:00:24 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/11EF0/production/_102565437_p06dznds.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Holiday credit card charges - and how to avoid them]]></title>
+            <description><![CDATA[Britons on holiday spend £1bn a year on fees when using their credit and debit cards abroad. There are ways round it, as Simon Gompertz explains.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44863990</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44863990</guid>
+            <pubDate>Tue, 17 Jul 2018 18:22:54 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/1ED7/production/_102559870_p06f0mh1.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[The perilous search for 'Himalayan Viagra']]></title>
+            <description><![CDATA[More valuable than gold, Yarsagumba fungus is only found in the Himalayas above 3,000 metres.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44846135</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44846135</guid>
+            <pubDate>Tue, 17 Jul 2018 00:07:37 GMT</pubDate>
+            <media:thumbnail width="1920" height="1080" url="http://c.files.bbci.co.uk/12043/production/_102559737_fungi.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA['Don't be do-gooders. Do things']]></title>
+            <description><![CDATA[Cafédirect boss John Steel says his firm is not "here to be do-gooders, we're here to do things".]]></description>
+            <link>https://www.bbc.co.uk/news/business-44786676</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44786676</guid>
+            <pubDate>Sun, 15 Jul 2018 23:12:49 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/85F8/production/_102469243_p06ddcxs.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Making lemonade]]></title>
+            <description><![CDATA[Teenage entrepreneur Mikaila Ulmer is the boss and founder of popular US drinks firm Me & The Bees Lemonade.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44860428</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44860428</guid>
+            <pubDate>Sun, 22 Jul 2018 23:15:58 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/83FB/production/_102578733_4b.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Mortgage misery]]></title>
+            <description><![CDATA[Excessive lending before the Financial Crisis has left many homeowners at risk of having their homes repossessed]]></description>
+            <link>https://www.bbc.co.uk/news/business-44851363</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44851363</guid>
+            <pubDate>Fri, 20 Jul 2018 20:52:45 GMT</pubDate>
+            <media:thumbnail width="464" height="261" url="http://c.files.bbci.co.uk/9A6D/production/_102633593_img_3252.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Especially for you]]></title>
+            <description><![CDATA[Thanks to the internet, having clothes made to fit you is becoming increasingly affordable.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44717585</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44717585</guid>
+            <pubDate>Sat, 21 Jul 2018 23:20:43 GMT</pubDate>
+            <media:thumbnail width="1280" height="720" url="http://c.files.bbci.co.uk/14968/production/_102382348_kentwangjacketcrkentwang.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Boomless speed]]></title>
+            <description><![CDATA[Three firms are vying to be the first to reintroduce commercial supersonic flight in the next decade.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44795639</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44795639</guid>
+            <pubDate>Thu, 19 Jul 2018 23:14:12 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/3135/production/_102579521_quesst_render.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Eyes on the skies]]></title>
+            <description><![CDATA[Farnborough Airshow in pictures: The big, the fast, the noisy.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44884883</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44884883</guid>
+            <pubDate>Thu, 19 Jul 2018 13:11:55 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/57BC/production/_102606422_1gettyimages-1000179032.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Unlikely partners?]]></title>
+            <description><![CDATA[Israel may be a big ally of the US, but it is moving ahead with ever more business deals with China.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44697662</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44697662</guid>
+            <pubDate>Wed, 18 Jul 2018 23:04:10 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/C31B/production/_102574994_gettyimages-655962784.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Rose gold rising]]></title>
+            <description><![CDATA[Rose gold clothes, shoes, furniture, cars, weddings - why is this colour still so popular?]]></description>
+            <link>https://www.bbc.co.uk/news/business-44757499</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44757499</guid>
+            <pubDate>Tue, 17 Jul 2018 23:07:42 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/BD95/production/_102433584_stella-lunardy-model.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Bright as a Button]]></title>
+            <description><![CDATA[A student racing car competition wants to tackle a global shortage of recruits into engineering.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44846456</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44846456</guid>
+            <pubDate>Tue, 17 Jul 2018 23:10:17 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/5FF4/production/_102546542_button.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Emotional surveillance]]></title>
+            <description><![CDATA[How facial recognition is being used to identify suspects in crowds and spot suspicious behaviour.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44799239</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44799239</guid>
+            <pubDate>Mon, 16 Jul 2018 23:28:05 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/185C6/production/_99928799_gettyimages-915205050.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Chinese whispers]]></title>
+            <description><![CDATA[Two Chinese companies are implicated in the scandal around the Malaysian investment fund, 1MDB.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44813753</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44813753</guid>
+            <pubDate>Mon, 16 Jul 2018 21:35:05 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/12377/production/_102551647_razak.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA['It was pretty crazy']]></title>
+            <description><![CDATA[Drew Houston and Arash Ferdowsi had never met before they teamed up to launch cloud storage giant Dropbox.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44766487</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44766487</guid>
+            <pubDate>Sun, 15 Jul 2018 23:07:48 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/17906/production/_102481569_co-founders-drew-houston-and-arash-ferdowsi.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[No affordable homes?]]></title>
+            <description><![CDATA[More money is now available for people who want to develop affordable housing in their local area.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44699533</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44699533</guid>
+            <pubDate>Sat, 14 Jul 2018 05:13:37 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/8F99/production/_102316763_communityhousing.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Shedding pounds]]></title>
+            <description><![CDATA[With ever-more money being spent on fitness, BBC News asks who spends most and what is it spent on?]]></description>
+            <link>https://www.bbc.co.uk/news/business-44766250</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44766250</guid>
+            <pubDate>Mon, 16 Jul 2018 00:01:31 GMT</pubDate>
+            <media:thumbnail width="2048" height="1152" url="http://c.files.bbci.co.uk/0CDE/production/_102449230_gettyimages-909486626.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Active defence]]></title>
+            <description><![CDATA[How firms are using cutting-edge techniques to stop cyber criminals breaching their networks.]]></description>
+            <link>https://www.bbc.co.uk/news/technology-44438808</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/technology-44438808</guid>
+            <pubDate>Thu, 12 Jul 2018 23:21:13 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/7350/production/_102502592_gettyimages-653379702-1.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Beauty queen]]></title>
+            <description><![CDATA[Kylie Jenner is not old enough to drink alcohol in the US yet, but is worth almost $1bn.]]></description>
+            <link>https://www.bbc.co.uk/news/world-us-canada-44805888</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/world-us-canada-44805888</guid>
+            <pubDate>Thu, 12 Jul 2018 23:32:54 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/0FDC/production/_102506040_jenner.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Tariff battle]]></title>
+            <description><![CDATA[After the US imposes tariffs on $34bn of goods from China, the BBC looks at President Trump's move.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44765760</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44765760</guid>
+            <pubDate>Thu, 12 Jul 2018 00:34:19 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/9749/production/_102492783_gettyimages-871894546.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Trading places]]></title>
+            <description><![CDATA[President Trump vows to move quickly on a UK trade deal after Brexit - but the reality is more complex.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44294136</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44294136</guid>
+            <pubDate>Wed, 11 Jul 2018 23:17:09 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/57CE/production/_102487422_gettyimages-959850956.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Playing Chequers]]></title>
+            <description><![CDATA[The UK government is due to set out its plans for the country's post-Brexit relationship with the EU. What do we know so far?]]></description>
+            <link>https://www.bbc.co.uk/news/business-44784665</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44784665</guid>
+            <pubDate>Wed, 11 Jul 2018 07:43:24 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/D972/production/_102466655_brexit_epa.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Korea lesson]]></title>
+            <description><![CDATA[The popularity of K-pop is driving a global boom in learning the Korean language.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44770777</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44770777</guid>
+            <pubDate>Tue, 10 Jul 2018 23:15:45 GMT</pubDate>
+            <media:thumbnail width="768" height="432" url="http://c.files.bbci.co.uk/121C9/production/_102458147_016074093.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Ground breaking tech]]></title>
+            <description><![CDATA[Virtual reality, drones and automation are making mining safer and more productive.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44728346</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44728346</guid>
+            <pubDate>Mon, 09 Jul 2018 23:01:15 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/2F2B/production/_102457021_sts3d.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[Citroën CEO: ‘Directors' egos can be a bit like four-year-olds’]]></title>
+            <description><![CDATA[Linda Jackson is the first female and first British CEO of French carmaker Citroën.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44730967</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44730967</guid>
+            <pubDate>Sun, 08 Jul 2018 23:30:48 GMT</pubDate>
+            <media:thumbnail width="1024" height="576" url="http://c.files.bbci.co.uk/11A61/production/_102398227_p06d1n9z.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA['One of the lucky ones']]></title>
+            <description><![CDATA[Simplyhealth chief executive Romana Adbin didn't let the lasting impact of polio hold her back.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44539546</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44539546</guid>
+            <pubDate>Sun, 08 Jul 2018 23:06:18 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/10F1C/production/_102440496_roman-2.jpg"/>
+        </item>
+        <item>
+            <title><![CDATA[From podium to boardroom]]></title>
+            <description><![CDATA[David Coulthard swapped the high-powered world of Formula 1 for a new career path in the media and business.]]></description>
+            <link>https://www.bbc.co.uk/news/business-44451219</link>
+            <guid isPermaLink="true">https://www.bbc.co.uk/news/business-44451219</guid>
+            <pubDate>Sat, 07 Jul 2018 00:48:45 GMT</pubDate>
+            <media:thumbnail width="976" height="549" url="http://c.files.bbci.co.uk/AC6A/production/_101983144_mediaitem101983143.jpg"/>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,3 @@
+BBC News - entertainment_and_arts : http://feeds.bbci.co.uk/news/world/middle_east/rss.xml
+BBC News - africa : http://feeds.bbci.co.uk/news/world/africa/rss.xml
+BBC News - business : http://feeds.bbci.co.uk/news/business/rss.xml
