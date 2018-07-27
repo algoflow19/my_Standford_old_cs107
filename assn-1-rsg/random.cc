@@ -16,6 +16,7 @@
 RandomGenerator::RandomGenerator()
 {
   srand(time(NULL));
+
 }
 
 /**
