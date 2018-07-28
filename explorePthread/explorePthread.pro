@@ -6,4 +6,8 @@ CONFIG -= qt
 LIBS +=-lpthread
 
 SOURCES += \
-        main.c
+        main.c \
+    vector.c
+
+HEADERS += \
+    vector.h

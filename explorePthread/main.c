@@ -1,44 +1,77 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include "vector.h"
+#include<string.h>
 
-void *functionC();
-pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
-int  counter = 0;
+struct Vector;
 
-main()
-{
-   int rc1, rc2;
-   pthread_t thread1, thread2;
+typedef struct {
+  char *girl;
+  char *boy;
+} couple;
 
-   /* Create independent threads each of which will execute functionC */
+typedef struct{
+  Vector *couples;
+  Vector *boys;
+} pairAuxData;
 
-   if( (rc1=pthread_create( &thread1, NULL, &functionC, NULL)) )
-   {
-      printf("Thread creation failed: %d\n", rc1);
-   }
-
-   if( (rc2=pthread_create( &thread2, NULL, &functionC, NULL)) )
-   {
-      printf("Thread creation failed: %d\n", rc2);
-   }
-
-   /* Wait till threads are complete before main continues. Unless we  */
-   /* wait we run the risk of executing an exit which will terminate   */
-   /* the process and all threads before the threads have completed.   */
-
-   pthread_join( thread1, NULL);
-   pthread_join( thread2, NULL);
-
-   printf (" %d \n",sizeof(pthread_t));
-
-   exit(0);
+void pairFreeFun(couple *elemaddr){
+  free(elemaddr->boy);
+  free(elemaddr->girl);
 }
 
-void *functionC()
+
+void generatePairForEveryHelper(char *item,Vector *boys,Vector *couples){
+  int len=VectorLength (boys);
+  for(int i=0;i<len;i++){
+      couple dummy;
+      dummy.boy=strdup(VectorNth (boys,i));
+      dummy.girl=strdup(item);
+      VectorAppend (couples,&dummy);
+    }
+
+}
+
+void generatePairForEvery(char *item,pairAuxData *auxdata){
+  generatePairForEveryHelper (item,auxdata->boys,auxdata->couples);
+}
+
+vector generateAllCouples(vector *boys, vector *girls)
 {
-   pthread_mutex_lock( &mutex1 );
-   counter++;
-   printf("Counter value: %d\n",counter);
-   pthread_mutex_unlock( &mutex1 );
+  vector couples;
+  VectorNew(&couples, sizeof(couple), pairFreeFun, 0);
+  pairAuxData aux;
+  aux.couples=&couples;
+  aux.boys=boys;
+  VectorMap (girls,generatePairForEvery,&aux);
+
+}
+
+typedef bool (*VectorSplitFunction)(const void *elemAddr);
+void VectorSplit(vector *original,
+                 vector *thoseThatPass,
+                 vector *thoseThatFail,
+                 VectorSplitFunction test)
+{
+  VectorNew (thoseThatPass,original->elemSize,original->freeFun,original->initAllocLength);
+  VectorNew (thoseThatFail,original->elemSize,original->freeFun,original->initAllocLength);
+  int len=VectorLength (original);
+  for(int i=0;i<len;i++){
+      void *elemaddr=VectorNth (original,i);
+      if(test(elemaddr)==false){
+          VectorAppend (thoseThatFail,elemaddr);
+        }
+      else
+        VectorAppend (thoseThatPass,elemaddr);
+    }
+  free(original->datas);
+  VectorNew (original,original->elemSize,original->freeFun,original->initAllocLength);
+
+}
+main()
+{
+
+
+  exit(0);
 }
